@@ -11,7 +11,13 @@ class Main extends Component {
     componentDidMount() {
         const token = localStorage.getItem("tokenid");
         if (token) {
-            this.setState({ loggedIn: true });
+            this.setState({
+                loggedIn: true,
+                credentials: {
+                    ...this.state.credentials,
+                    tokenid: token
+                }
+            });
         }
     }
 
