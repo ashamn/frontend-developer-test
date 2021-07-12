@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as S from './style';
 import { constants } from '../../constants';
 
-import { device } from '../../api/device';
+import { device, notify } from '../../api/device';
 
 export const Devices = (props) => {
 
@@ -29,7 +29,7 @@ export const Devices = (props) => {
         return spins;
     }
 
-    const notify = () => {
+    const setNotify = () => {
 
         const { email, token } = props.credentials;
         const toSend = {
@@ -43,9 +43,9 @@ export const Devices = (props) => {
             token: token
         }
 
-        device(toSend).then(data => {
-            setDeviceCount(data.data.devices.length);
-        });
+        notify(toSend).then(data => {
+            console.log('data', data);
+        }).catch(err => console.log('error', err));
     }
 
     const _connect = () => {
@@ -66,7 +66,7 @@ export const Devices = (props) => {
             </S.Counter>
 
             <S.Footer>
-                <S.Button onClick={() => { notify() }} color="white">NOTIFY</S.Button>
+                <S.Button onClick={() => { setNotify() }} color="white">NOTIFY</S.Button>
                 <S.Button onClick={() => { props.setLogout() }} color="dark">LOG OUT</S.Button>
             </S.Footer>
         </S.Container>
