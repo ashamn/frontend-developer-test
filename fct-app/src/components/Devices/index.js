@@ -43,9 +43,7 @@ export const Devices = (props) => {
             token: tokenid
         }
 
-        notify(toSend).then(data => {
-            console.log('data', data);
-        }).catch(err => console.log('error', err));
+        notify(toSend);
     }
 
     const _connect = () => {
