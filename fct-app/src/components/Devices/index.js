@@ -17,7 +17,7 @@ export const Devices = (props) => {
         return () => clearInterval(intervalId);
     }, []);
 
-    const rand = () => Math.floor(Math.random() * (20 - 2 + 1)) + 2;
+    const rand = () => Math.floor(Math.random() * (30 - 2 + 1)) + 2;
 
     const renderCircles = () => {
         let i = 1;
@@ -31,7 +31,7 @@ export const Devices = (props) => {
 
     const setNotify = () => {
 
-        const { email, token } = props.credentials;
+        const { email, tokenid } = props.credentials;
         const toSend = {
             url: 'notify',
             data: {
@@ -40,7 +40,7 @@ export const Devices = (props) => {
                 repoUrl: constants.REPO_URL,
                 message: constants.MESSAGE
             },
-            token: token
+            token: tokenid
         }
 
         notify(toSend).then(data => {

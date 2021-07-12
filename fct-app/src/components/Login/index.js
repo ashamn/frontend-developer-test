@@ -27,6 +27,7 @@ export const Login = (props) => {
             login(toSend).then(data => {
                 if (data.status === 200) {
                     localStorage.setItem('tokenid', data.data);
+                    localStorage.setItem('email', credentials.email);
                     props.setLogin({ email: credentials.email, tokenid: data.data });
                 }
             }).catch(error => {

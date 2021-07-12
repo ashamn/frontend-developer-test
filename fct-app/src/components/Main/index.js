@@ -10,12 +10,14 @@ class Main extends Component {
 
     componentDidMount() {
         const token = localStorage.getItem("tokenid");
+        const email = localStorage.getItem("email");
         if (token) {
             this.setState({
                 loggedIn: true,
                 credentials: {
                     ...this.state.credentials,
-                    tokenid: token
+                    tokenid: token,
+                    email
                 }
             });
         }
@@ -27,6 +29,7 @@ class Main extends Component {
 
     setLogout = () => {
         localStorage.setItem("tokenid", "");
+        localStorage.setItem("email", "");
         this.setState({ loggedIn: false });
     }
 
