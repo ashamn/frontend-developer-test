@@ -40,7 +40,7 @@ export const Login = (props) => {
         }
 
         setCredentials({
-            email: '',
+            ...credentials,
             password: ''
         });
     }
