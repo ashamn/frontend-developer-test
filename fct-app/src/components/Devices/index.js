@@ -20,9 +20,9 @@ export const Devices = (props) => {
     const rand = () => Math.floor(Math.random() * (20 - 2 + 1)) + 2;
 
     const renderCircles = () => {
-        let i = 0;
+        let i = 1;
         let spins = [];
-        while (deviceCount > 0 && i < deviceCount) {
+        while (deviceCount > 0 && i <= deviceCount) {
             spins.push(<S.Spin time={rand} key={i} />);
             i++;
         }
